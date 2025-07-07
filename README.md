@@ -20,14 +20,14 @@ seaborn==0.12.2
 Pillow==9.5.0
 tqdm==4.65.0
 
-# For computational analysis
+## For computational analysis
 thop==0.1.1.post2209072238
 
-# For visualization
+## For visualization
 scikit-image==0.20.0
 opencv-python==4.7.0.72
 
-# For LaTeX table generation
+## For LaTeX table generation
 tabulate==0.9.0
 
 
