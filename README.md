@@ -9,7 +9,7 @@ HCT-Net is a hybird deep learning model for automated classification of cervical
 - **Early Stopping**: Prevents overfitting and optimizes training time
 - **Comprehensive Metrics**: Tracks accuracy, precision, recall, F1-score, and more
 
-## Installation
+## Requirements
 torch==2.0.1
 torchvision==0.15.2
 numpy==1.24.3
