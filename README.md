@@ -15,3 +15,18 @@ HCT-Net is a hybird deep learning model for automated classification of cervical
 git clone https://github.com/hannpyzhaoyanli/HCT-Net.git
 cd HCT-Net
 pip install -r requirements.txt
+
+##  Directory Structure
+
+HCT-Net/
+├── checkpoint/          # Training checkpoints and best models
+├── data/                 # Dataset directory
+├── docs/                 # Documentation and visualizations
+├── src/
+│   ├── hctnet_model.py   # Model architecture
+│   ├── dataset.py        # Data loading and augmentation
+│   ├── loss.py           # Joint loss function
+│   ├── train.py          # Training script
+│   └── test.py           # Evaluation script
+├── requirements.txt      # Python dependencies
+└── README.md             # This file
