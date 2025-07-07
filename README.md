@@ -1,4 +1,4 @@
-# HCT-Net: Hybrid CNN-Transformer for Cervical Cell Classification
+# HCT-Net: A hybrid CNN-Transformer network for multi-class cervical cell classification
 
 HCT-Net is a hybird deep learning model for automated classification of cervical cell images, combining the strengths of CNNs and Transformers to achieve superior performance in cervical cancer screening.
 
