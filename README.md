@@ -16,17 +16,27 @@ git clone https://github.com/hannpyzhaoyanli/HCT-Net.git
 cd HCT-Net
 pip install -r requirements.txt
 
-##  Directory Structure
+## Requirements
 
-HCT-Net/
-├── checkpoint/          # Training checkpoints and best models
-├── data/                 # Dataset directory
-├── docs/                 # Documentation and visualizations
-├── src/
-│   ├── hctnet_model.py   # Model architecture
-│   ├── dataset.py        # Data loading and augmentation
-│   ├── loss.py           # Joint loss function
-│   ├── train.py          # Training script
-│   └── test.py           # Evaluation script
-├── requirements.txt      # Python dependencies
-└── README.md             # This file
+
+torch==2.0.1
+torchvision==0.15.2
+numpy==1.24.3
+pandas==2.0.2
+scikit-learn==1.2.2
+matplotlib==3.7.1
+seaborn==0.12.2
+Pillow==9.5.0
+tqdm==4.65.0
+
+# For computational analysis
+thop==0.1.1.post2209072238
+
+# For visualization
+scikit-image==0.20.0
+opencv-python==4.7.0.72
+
+# For LaTeX table generation
+tabulate==0.9.0
+
+
