@@ -1,1 +1,17 @@
+# HCT-Net: Hybrid CNN-Transformer for Cervical Cell Classification
 
+HCT-Net is a hybird deep learning model for automated classification of cervical cell images, combining the strengths of CNNs and Transformers to achieve superior performance in cervical cancer screening.
+
+## Key Features
+
+- **Hybrid Architecture**: Combines CNN's local feature extraction with Transformer's global context modeling
+- **Checkpoint System**: Automatic saving and resuming of training progress
+- **Early Stopping**: Prevents overfitting and optimizes training time
+- **Comprehensive Metrics**: Tracks accuracy, precision, recall, F1-score, and more
+
+## Installation
+
+```bash
+git clone https://github.com/hannpyzhaoyanli/HCT-Net.git
+cd HCT-Net
+pip install -r requirements.txt
