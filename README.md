@@ -23,6 +23,7 @@ thop==0.1.1.post2209072238
 scikit-image==0.20.0
 opencv-python==4.7.0.72
 tabulate==0.9.0
+gdown==4.7.1
 
 ## Model Weights Download
 [Download Model Weights](https://drive.google.com/file/d/1DLmlOO7LbL1-Zf4f5g-qvkyxaFZwlZeG/view?usp=drive_link)
