@@ -11,11 +11,38 @@ from thop import profile
 from sklearn.metrics import accuracy_score, f1_score
 import matplotlib.pyplot as plt
 import pandas as pd
+import gdown  # Added for downloading weights
 
-# Create checkpoint directory if not exists
+# Function to download pretrained weights
+def download_pretrained_weights():
+    # Google Drive file ID
+    file_id = '1DLmlOO7LbL1-Zf4f5g-qvkyxaFZwlZeG'
+    output_path = 'checkpoint/pretrained_weights.pth'
+    
+    # Return if weights already exist
+    if os.path.exists(output_path):
+        print("Pretrained weights already exist")
+        return output_path
+    
+    print("Downloading pretrained weights...")
+    
+    try:
+        # Construct download URL
+        url = f'https://drive.google.com/uc?id={file_id}'
+        
+        # Download file
+        gdown.download(url, output_path, quiet=False)
+        
+        print("Pretrained weights downloaded successfully!")
+        return output_path
+    except Exception as e:
+        print(f"Download failed: {e}")
+        return None
+
+# Create checkpoint directory
 os.makedirs('checkpoint', exist_ok=True)
 
-# Fix all random seeds for reproducibility
+# Set random seeds for reproducibility
 torch.manual_seed(42)
 np.random.seed(42)
 torch.backends.cudnn.deterministic = True
@@ -28,8 +55,22 @@ val_set = CervicalDataset(root_dir='./data', dataset_name='SIPaKMeD', mode='val'
 class_counts = torch.bincount(torch.tensor([label for _, label in train_set]))
 class_weights = (1. / class_counts.float()).to('cuda')
 
-# Initialize model and optimizer
+# Initialize model
 model = HCTNet(num_classes=len(train_set.classes)).to('cuda')
+
+# Download and load pretrained weights
+weights_path = download_pretrained_weights()
+if weights_path:
+    try:
+        model.load_state_dict(torch.load(weights_path))
+        print("Successfully loaded pretrained weights")
+    except Exception as e:
+        print(f"Failed to load pretrained weights: {e}")
+        print("Using random initialization")
+else:
+    print("No pretrained weights found, using random initialization")
+
+# Initialize optimizer and scheduler
 optimizer = AdamW(model.parameters(), lr=2e-6, weight_decay=0.01)
 scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(
     optimizer, T_0=5, T_mult=2, eta_min=1e-6
